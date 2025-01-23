@@ -1,0 +1,87 @@
+{
+    "name": "OpenSearch Configuration Settings",
+    "description": "Configures options for setting up OpenSearch, including host, port, authentication, and index prefix.",
+    "summary": "This configuration file contains options related to configuring OpenSearch, such as the host, port, authentication settings, index prefix, and timeout.",
+    "configurations": {
+        "opensearch-host": {
+            "name": "OpenSearch Host",
+            "shortcut": null,
+            "description": "Specify the OpenSearch host.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "opensearch-port": {
+            "name": "OpenSearch Port",
+            "shortcut": null,
+            "description": "Specify the OpenSearch port.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "opensearch-enable-auth": {
+            "name": "Enable OpenSearch Authentication",
+            "shortcut": null,
+            "description": "Enable authentication for OpenSearch.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "mode": "none",
+            "tags": [
+                "magento"
+            ]
+        },
+        "opensearch-username": {
+            "name": "OpenSearch Username",
+            "shortcut": null,
+            "description": "Specify the OpenSearch username.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "opensearch-password": {
+            "name": "OpenSearch Password",
+            "shortcut": null,
+            "description": "Specify the OpenSearch password.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "opensearch-index-prefix": {
+            "name": "OpenSearch Index Prefix",
+            "shortcut": null,
+            "description": "Specify the OpenSearch index prefix.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "opensearch-timeout": {
+            "name": "OpenSearch Timeout",
+            "shortcut": null,
+            "description": "Specify the OpenSearch timeout.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        }
+    }
+}

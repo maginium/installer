@@ -1,0 +1,154 @@
+{
+    "name": "Database Configuration Settings",
+    "description": "Defines the necessary settings and options for configuring the application's database connection, including host, user credentials, engine, and initialization parameters.",
+    "summary": "This configuration file contains critical database-related settings to ensure proper connection, setup, and security, including the ability to configure host, credentials, prefixes, and optional initialization steps.",
+    "configurations": {
+        "db-host": {
+            "name": "Database Host",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Specify the database host.",
+            "default": null,
+            "suggestedValues": [
+                "localhost",
+                "127.0.0.1"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "db-name": {
+            "name": "Database Name",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Specify the database name.",
+            "default": null,
+            "suggestedValues": [
+                "example_db",
+                "test_db"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "db-user": {
+            "name": "Database Username",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Specify the database username.",
+            "default": null,
+            "suggestedValues": [
+                "root",
+                "admin"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "db-engine": {
+            "name": "Database Engine",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Specify the database engine.",
+            "default": null,
+            "suggestedValues": [
+                "mysql",
+                "pgsql",
+                "sqlite"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "db-password": {
+            "name": "Database Password",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Specify the database password.",
+            "default": null,
+            "suggestedValues": [],
+            "tags": [
+                "magento"
+            ]
+        },
+        "db-prefix": {
+            "name": "Database Prefix",
+            "shortcut": null,
+            "mode": "optional",
+            "description": "Specify the database prefix.",
+            "default": null,
+            "suggestedValues": [
+                "wp_",
+                "magento_",
+                "myapp_"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "db-model": {
+            "name": "Database Model",
+            "shortcut": null,
+            "mode": "optional",
+            "description": "Specify the database model.",
+            "default": null,
+            "suggestedValues": [
+                "relational",
+                "no-sql"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "db-init-statements": {
+            "name": "Database Initialization Statements",
+            "shortcut": null,
+            "mode": "optional",
+            "description": "Specify the database initialization statements.",
+            "default": null,
+            "suggestedValues": [],
+            "tags": [
+                "magento"
+            ]
+        },
+        "skip-db-validation": {
+            "name": "Skip Database Validation",
+            "shortcut": "s",
+            "mode": "none",
+            "description": "Skip database validation.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "cleanup-database": {
+            "name": "Cleanup Database",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Cleanup the database during installation.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "use-sample-data": {
+            "name": "Use Sample Data",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Use sample data during setup.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ]
+        }
+    }
+}

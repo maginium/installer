@@ -1,0 +1,189 @@
+{
+    "name": "Production Environment Configuration",
+    "description": "Defines settings and options for optimizing the application in a production environment.",
+    "summary": "This configuration file contains critical settings to ensure secure, high-performance operation in production, including logging, caching, URL rewrites, and secure connection settings.",
+    "configurations": {
+        "enable-debug-logging": {
+            "name": "Enable Debug Logging",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Enables debug logging to capture detailed logs for debugging purposes.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "enable-syslog-logging": {
+            "name": "Enable Syslog Logging",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Enables logging to syslog for better integration with system-wide logging services.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "backend-frontname": {
+            "name": "Backend Frontname",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Defines the frontend name for the backend interface.",
+            "default": "admin",
+            "suggestedValues": [
+                "admin",
+                "manager",
+                "dashboard"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "config-async": {
+            "name": "Enable Asynchronous Configuration Loading",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Enables asynchronous loading of configuration to improve performance during startup.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-id-prefix": {
+            "name": "Cache ID Prefix",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Defines the prefix to be used in cache keys.",
+            "default": "cache_",
+            "suggestedValues": [
+                "cache_",
+                "temp_",
+                "static_"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "allow-parallel-generation": {
+            "name": "Allow Parallel Cache Generation",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Allows cache generation to run in parallel, potentially improving performance during large builds.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "document-root-is-pub": {
+            "name": "Document Root is Public",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Set the document root to be public, making files accessible publicly through the web server.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "use-secure-admin": {
+            "name": "Use Secure Admin Panel",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Enables a secure admin panel, forcing all admin panel interactions to use HTTPS.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "admin-use-security-key": {
+            "name": "Enable Admin Security Key",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Enable the use of a security key for admin access for extra security.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "use-rewrites": {
+            "name": "Enable URL Rewrites",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Enables the use of URL rewrites to customize URL structure.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "use-secure": {
+            "name": "Use Secure Connection",
+            "shortcut": null,
+            "mode": "none",
+            "description": "Forces the use of secure HTTPS connections for the application.",
+            "default": true,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "base-url-secure": {
+            "name": "Base URL for Secure Connection",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Defines the base URL for secure HTTPS connections.",
+            "default": "https://example.com",
+            "suggestedValues": [
+                "https://example.com",
+                "https://secure.example.com"
+            ],
+            "tags": [
+                "magento"
+            ]
+        },
+        "sales-order-increment-prefix": {
+            "name": "Sales Order Increment Prefix",
+            "shortcut": null,
+            "mode": "required",
+            "description": "Sets the prefix for sales order increments, allowing customization of order IDs.",
+            "default": "SO",
+            "suggestedValues": [
+                "SO",
+                "ORD",
+                "SALE"
+            ]
+        }
+    }
+}

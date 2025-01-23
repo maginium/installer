@@ -1,0 +1,62 @@
+{
+    "name": "Admin Configuration Settings",
+    "description": "Defines options for setting up the admin user account, including username, password, and email.",
+    "summary": "This configuration file contains options related to setting up the admin account, such as the username, password, and email. It also includes fields for the admin's first and last names.",
+    "configurations": {
+        "admin-user": {
+            "name": "Admin Username",
+            "shortcut": null,
+            "description": "Specify the admin username.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "admin-password": {
+            "name": "Admin Password",
+            "shortcut": null,
+            "description": "Specify the admin password.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "admin-email": {
+            "name": "Admin Email Address",
+            "shortcut": null,
+            "description": "Specify the admin email address.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "admin-firstname": {
+            "name": "Admin First Name",
+            "shortcut": null,
+            "description": "Specify the admin first name.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "admin-lastname": {
+            "name": "Admin Last Name",
+            "shortcut": null,
+            "description": "Specify the admin last name.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        }
+    }
+}

@@ -1,0 +1,271 @@
+{
+    "name": "Session Configuration Settings",
+    "description": "Configures session storage options, including Redis settings for session management.",
+    "summary": "This configuration file defines options for managing sessions, including Redis-specific settings for session storage, retries, compression, and timeouts.",
+    "configurations": {
+        "session-save": {
+            "name": "Session Save Method",
+            "shortcut": null,
+            "description": "Session save method",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-host": {
+            "name": "Redis Host",
+            "shortcut": null,
+            "description": "Redis host for session storage",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-port": {
+            "name": "Redis Port",
+            "shortcut": null,
+            "description": "Redis port for session storage",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-password": {
+            "name": "Redis Password",
+            "shortcut": null,
+            "description": "Redis password for session storage",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-timeout": {
+            "name": "Redis Timeout",
+            "shortcut": null,
+            "description": "Redis session timeout",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-retries": {
+            "name": "Redis Retries",
+            "shortcut": null,
+            "description": "Redis retries for session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-persistent-id": {
+            "name": "Redis Persistent ID",
+            "shortcut": null,
+            "description": "Redis persistent ID for session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-db": {
+            "name": "Redis DB",
+            "shortcut": null,
+            "description": "Redis database for session storage",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-compression-threshold": {
+            "name": "Redis Compression Threshold",
+            "shortcut": null,
+            "description": "Compression threshold for Redis session storage",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-compression-lib": {
+            "name": "Redis Compression Library",
+            "shortcut": null,
+            "description": "Compression library for Redis session storage",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-log-level": {
+            "name": "Redis Log Level",
+            "shortcut": null,
+            "description": "Log level for Redis session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-max-concurrency": {
+            "name": "Redis Max Concurrency",
+            "shortcut": null,
+            "description": "Max concurrency for Redis session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-break-after-frontend": {
+            "name": "Redis Break After Frontend",
+            "shortcut": null,
+            "description": "Redis session break after frontend",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-break-after-adminhtml": {
+            "name": "Redis Break After Adminhtml",
+            "shortcut": null,
+            "description": "Redis session break after adminhtml",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-first-lifetime": {
+            "name": "Redis First Lifetime",
+            "shortcut": null,
+            "description": "Redis session first lifetime",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-bot-first-lifetime": {
+            "name": "Redis Bot First Lifetime",
+            "shortcut": null,
+            "description": "Redis session bot first lifetime",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-bot-lifetime": {
+            "name": "Redis Bot Lifetime",
+            "shortcut": null,
+            "description": "Redis session bot lifetime",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-disable-locking": {
+            "name": "Redis Disable Locking",
+            "shortcut": null,
+            "description": "Disable Redis locking for session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-min-lifetime": {
+            "name": "Redis Min Lifetime",
+            "shortcut": null,
+            "description": "Redis session min lifetime",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-max-lifetime": {
+            "name": "Redis Max Lifetime",
+            "shortcut": null,
+            "description": "Redis session max lifetime",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-sentinel-master": {
+            "name": "Redis Sentinel Master",
+            "shortcut": null,
+            "description": "Redis sentinel master for session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-sentinel-servers": {
+            "name": "Redis Sentinel Servers",
+            "shortcut": null,
+            "description": "Redis sentinel servers for session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-sentinel-verify-master": {
+            "name": "Redis Sentinel Verify Master",
+            "shortcut": null,
+            "description": "Verify Redis sentinel master for session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "session-save-redis-sentinel-connect-retries": {
+            "name": "Redis Sentinel Connect Retries",
+            "shortcut": null,
+            "description": "Redis sentinel connect retries for session save",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        }
+    }
+}

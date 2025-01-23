@@ -1,0 +1,51 @@
+{
+    "name": "Store Configuration Settings",
+    "description": "Configures store-related settings such as base URL, language, timezone, and currency for the application.",
+    "summary": "This configuration file defines options for setting up the store, including base URL, language, timezone, and currency.",
+    "configurations": {
+        "base-url": {
+            "name": "Base URL",
+            "shortcut": null,
+            "description": "Base URL for the application",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "language": {
+            "name": "Language",
+            "shortcut": null,
+            "description": "Language for the application",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "timezone": {
+            "name": "Timezone",
+            "shortcut": null,
+            "description": "Timezone for the application",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "currency": {
+            "name": "Currency",
+            "shortcut": null,
+            "description": "Currency for the application",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        }
+    }
+}

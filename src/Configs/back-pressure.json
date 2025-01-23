@@ -1,0 +1,109 @@
+{
+    "name": "Backpressure Configuration Settings",
+    "description": "Configures options related to the backpressure logger, including Redis server, port, timeout, persistence, and user credentials.",
+    "summary": "This configuration file defines various options for setting up and configuring the backpressure logger, including Redis server details and optional persistence settings.",
+    "configurations": {
+        "backpressure-logger": {
+            "name": "Backpressure Logger",
+            "shortcut": null,
+            "description": "Specify the backpressure logger.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "backpressure-logger-redis-server": {
+            "name": "Redis Server for Backpressure Logger",
+            "shortcut": null,
+            "description": "Specify the Redis server for backpressure logger.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "backpressure-logger-redis-port": {
+            "name": "Redis Port for Backpressure Logger",
+            "shortcut": null,
+            "description": "Specify the Redis port for backpressure logger.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "backpressure-logger-redis-timeout": {
+            "name": "Redis Timeout for Backpressure Logger",
+            "shortcut": null,
+            "description": "Specify the Redis timeout for backpressure logger.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "backpressure-logger-redis-persistent": {
+            "name": "Enable Redis Persistence for Backpressure Logger",
+            "shortcut": null,
+            "description": "Enable Redis persistence for backpressure logger.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "mode": "none",
+            "tags": [
+                "magento"
+            ]
+        },
+        "backpressure-logger-redis-db": {
+            "name": "Redis DB for Backpressure Logger",
+            "shortcut": null,
+            "description": "Specify the Redis DB number for backpressure logger.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "backpressure-logger-redis-password": {
+            "name": "Redis Password for Backpressure Logger",
+            "shortcut": null,
+            "description": "Specify the Redis password for backpressure logger.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "backpressure-logger-redis-user": {
+            "name": "Redis User for Backpressure Logger",
+            "shortcut": null,
+            "description": "Specify the Redis user for backpressure logger.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "backpressure-logger-id-prefix": {
+            "name": "Backpressure Logger ID Prefix",
+            "shortcut": null,
+            "description": "Specify a prefix for the backpressure logger ID.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        }
+    }
+}

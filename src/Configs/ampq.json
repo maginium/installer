@@ -1,0 +1,112 @@
+{
+    "name": "AMQP Configuration Settings",
+    "description": "Configures options related to AMQP connections, including server details, authentication, SSL settings, and queue configurations.",
+    "summary": "This configuration file defines various options for setting up and configuring AMQP connections, including server host, port, authentication, virtual host, SSL, and consumer/queue settings.",
+    "configurations": {
+        "amqp-host": {
+            "name": "AMQP Host",
+            "shortcut": null,
+            "description": "Specify the AMQP server host.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "amqp-port": {
+            "name": "AMQP Port",
+            "shortcut": null,
+            "description": "Specify the AMQP server port.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "amqp-user": {
+            "name": "AMQP Username",
+            "shortcut": null,
+            "description": "Specify the AMQP username.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "amqp-password": {
+            "name": "AMQP Password",
+            "shortcut": null,
+            "description": "Specify the AMQP password.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "amqp-virtualhost": {
+            "name": "AMQP Virtual Host",
+            "shortcut": null,
+            "description": "Specify the AMQP virtual host.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "amqp-ssl": {
+            "name": "Enable AMQP SSL",
+            "shortcut": null,
+            "description": "Enable SSL for AMQP connections.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "mode": "none",
+            "tags": [
+                "magento"
+            ]
+        },
+        "amqp-ssl-options": {
+            "name": "AMQP SSL Options",
+            "shortcut": null,
+            "description": "Specify SSL options for AMQP.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "consumers-wait-for-messages": {
+            "name": "Consumers Wait for Messages",
+            "shortcut": null,
+            "description": "Make consumers wait for messages.",
+            "default": false,
+            "suggestedValues": [
+                true,
+                false
+            ],
+            "mode": "none",
+            "tags": [
+                "magento"
+            ]
+        },
+        "queue-default-connection": {
+            "name": "Queue Default Connection",
+            "shortcut": null,
+            "description": "Set the default queue connection.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        }
+    }
+}

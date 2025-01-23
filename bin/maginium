@@ -1,0 +1,104 @@
+#!/usr/bin/env php
+<?php
+
+use Maginium\Installer\Helpers\CommandRegistry;
+use Symfony\Component\Console\Application;
+
+/*
+|--------------------------------------------------------------------------
+| Autoload Initialization
+|--------------------------------------------------------------------------
+|
+| This section defines various constants used for autoloading, ensuring that
+| the application can load the necessary files correctly. By defining the
+| root directory constant (`BP`), we maintain consistency in file references.
+|
+*/
+
+// Define the root directory of the application
+defined('BP') || define('BP', dirname(__DIR__));
+defined('SP') || define('SP', DIRECTORY_SEPARATOR);
+
+/*
+|--------------------------------------------------------------------------
+| Autoload Initialization
+|--------------------------------------------------------------------------
+|
+| This section checks if a custom autoload file exists. If found, it loads
+| the custom autoload file, otherwise, it loads the default vendor autoload.
+| This ensures that the application can dynamically adapt to different setups.
+|
+*/
+
+// Check if the custom autoload file exists (e.g., for a non-standard setup)
+if (file_exists(__DIR__.'/../../../autoload.php')) {
+    // Load the custom autoload file
+    require __DIR__.'/../../../autoload.php';
+} else {
+    // Load the default autoload file from the vendor directory
+    require __DIR__.'/../vendor/autoload.php';
+}
+
+/*
+|--------------------------------------------------------------------------
+| Bootstrap Application
+|--------------------------------------------------------------------------
+|
+| This section includes the `bootstrap.php` file, which is responsible for
+| initializing the application instance. The bootstrap file sets up the
+| core functionality, including the commands for the Symfony console.
+|
+*/
+
+// Include the bootstrap file which returns the app instance
+/** @var Application $app */
+$app = new Application('Maginium Installer', '1.0.0');
+
+/*
+|--------------------------------------------------------------------------
+| Symfony Console Application Setup
+|--------------------------------------------------------------------------
+|
+| This section creates and configures the Symfony console application. The
+| application is initialized with the name "Maginium Installer" and version
+| "5.11.0". The core command (`NewCommand`) is then added to the application.
+| The setup prepares the application for running commands in the console.
+|
+*/
+
+// Initialize the Symfony Console Application
+$app = new Symfony\Component\Console\Application("Maginium Installer", "5.11.0");
+
+// Retrieve the registered commands from the CommandRegistry
+$commands = CommandRegistry::instance()->getCommands();
+
+// Iterate over the commands and add them to the application
+array_map(fn($command) => $app->add($command), $commands);
+
+/*
+|--------------------------------------------------------------------------
+| Run Application
+|--------------------------------------------------------------------------
+|
+| This section runs the Symfony console application, processing any input
+| arguments or commands passed via the command line. The `run()` method
+| triggers the execution of the application.
+|
+*/
+
+// Run the application
+$app->run();
+
+
+/*
+|--------------------------------------------------------------------------
+| Return Application Instance
+|--------------------------------------------------------------------------
+|
+| This section returns the configured Symfony application instance. The returned
+| instance can then be used to run commands and process input through the console.
+|
+*/
+
+// Return the application instance for running
+return $app;

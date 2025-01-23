@@ -1,0 +1,29 @@
+{
+    "name": "Module Configuration Settings",
+    "description": "Configures options for enabling or disabling specific modules during installation.",
+    "summary": "This configuration file defines options for managing module activation during installation, allowing you to enable or disable specific modules.",
+    "configurations": {
+        "enable-modules": {
+            "name": "Enable Modules",
+            "shortcut": null,
+            "description": "Enable specific modules during installation.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "disable-modules": {
+            "name": "Disable Modules",
+            "shortcut": null,
+            "description": "Disable specific modules during installation.",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        }
+    }
+}

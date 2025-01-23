@@ -1,0 +1,211 @@
+{
+    "name": "Cache Configuration Settings",
+    "description": "Configures cache storage options, including backend cache options and Redis settings.",
+    "summary": "This configuration file defines options for managing caching, including Redis-specific settings for cache storage, compression, Lua scripting, and lock settings.",
+    "configurations": {
+        "http-cache-hosts": {
+            "name": "HTTP Cache Hosts",
+            "shortcut": null,
+            "description": "List of HTTP cache hosts",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-backend": {
+            "name": "Cache Backend",
+            "shortcut": null,
+            "description": "Cache backend to use",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-backend-redis-server": {
+            "name": "Cache Backend Redis Server",
+            "shortcut": null,
+            "description": "Redis server for cache backend",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-backend-redis-db": {
+            "name": "Cache Backend Redis DB",
+            "shortcut": null,
+            "description": "Redis DB for cache backend",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-backend-redis-port": {
+            "name": "Cache Backend Redis Port",
+            "shortcut": null,
+            "description": "Redis port for cache backend",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-backend-redis-password": {
+            "name": "Cache Backend Redis Password",
+            "shortcut": null,
+            "description": "Redis password for cache backend",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-backend-redis-compress-data": {
+            "name": "Cache Backend Redis Compress Data",
+            "shortcut": null,
+            "description": "Enable data compression for Redis cache backend",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-backend-redis-compression-lib": {
+            "name": "Cache Backend Redis Compression Library",
+            "shortcut": null,
+            "description": "Compression library for Redis cache backend",
+            "default": null,
+            "suggestedValues": [
+                "gzip",
+                "lz4"
+            ],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "cache-backend-redis-use-lua": {
+            "name": "Cache Backend Redis Use Lua",
+            "shortcut": null,
+            "description": "Use Lua scripting in Redis for cache backend",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "page-cache": {
+            "name": "Page Cache Backend",
+            "shortcut": null,
+            "description": "Page cache backend to use",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "page-cache-redis-server": {
+            "name": "Page Cache Redis Server",
+            "shortcut": null,
+            "description": "Redis server for page cache",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "page-cache-redis-db": {
+            "name": "Page Cache Redis DB",
+            "shortcut": null,
+            "description": "Redis DB for page cache",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "page-cache-redis-port": {
+            "name": "Page Cache Redis Port",
+            "shortcut": null,
+            "description": "Redis port for page cache",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "page-cache-redis-compress-data": {
+            "name": "Page Cache Redis Compress Data",
+            "shortcut": null,
+            "description": "Enable Redis compression for page cache",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "page-cache-redis-compression-lib": {
+            "name": "Page Cache Redis Compression Library",
+            "shortcut": null,
+            "description": "Redis compression library for page cache",
+            "default": null,
+            "suggestedValues": [
+                "gzip",
+                "lz4"
+            ],
+            "mode": "optional",
+            "tags": [
+                "magento"
+            ]
+        },
+        "lock-provider": {
+            "name": "Lock Provider",
+            "shortcut": null,
+            "description": "Lock provider for cache management",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "lock-db-prefix": {
+            "name": "Lock Database Prefix",
+            "shortcut": null,
+            "description": "Lock database prefix for cache management",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        },
+        "lock-zookeeper-host": {
+            "name": "Lock Zookeeper Host",
+            "shortcut": null,
+            "description": "Zookeeper host for lock provider",
+            "default": null,
+            "suggestedValues": [],
+            "mode": "required",
+            "tags": [
+                "magento"
+            ]
+        }
+    }
+}
