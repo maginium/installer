@@ -15,11 +15,11 @@ Thank you for considering contributing to the Installer! The contribution guide 
 
 ## Code of Conduct
 
-In order to ensure that the Maginium community is welcoming to all, please review and abide by the [Code of Conduct](https://maginium.com/docs/contributions#code-of-conduct).
+To ensure that the Maginium community is welcoming to all, please review and abide by the [Code of Conduct](https://maginium.com/docs/contributions#code-of-conduct).
 
 ## Security Vulnerabilities
 
-Please review [our security policy](https://github.com/maginium/installer/security/policy) on how to report security vulnerabilities.
+Please review [our security policy](https://github.com/maginium/installer/security/policy) on reporting security vulnerabilities.
 
 ## License
 
