@@ -2,10 +2,24 @@
 
 declare(strict_types=1);
 
+/*
+ *
+ *  🚀 This file is part of the Maginium Framework.
+ *
+ *  ©️ 2025. Maginium Technologies <contact@maginium.com>
+ *  🖋️ Author: Abdelrhman Kouta
+ *      - 📧 Email: pixiedia@gmail.com
+ *      - 🌐 Website: https://maginium.com
+ *  📖 Documentation: https://docs.maginium.com
+ *
+ *  📄 For the full copyright and license information, please view
+ *  the LICENSE file that was distributed with this source code.
+ */
+
 namespace Maginium\Installer\Traits;
 
 use Illuminate\Support\Str;
-use Maginium\Installer\Concerns\HasDependencies;
+use Maginium\Installer\Concerns\InteractWithContainer;
 use Maginium\Installer\Enums\Commands;
 use Maginium\Installer\Enums\ConfigTags;
 use Maginium\Installer\Enums\ConfigTypes;
@@ -27,7 +41,7 @@ use function Laravel\Prompts\text;
  */
 trait InstallationWizard
 {
-    use HasDependencies;
+    use InteractWithContainer;
 
     /**
      * Run the full installation process by gathering all configuration questions.

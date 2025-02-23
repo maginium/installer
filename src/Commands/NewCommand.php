@@ -2,18 +2,32 @@
 
 declare(strict_types=1);
 
+/*
+ *
+ *  🚀 This file is part of the Maginium Framework.
+ *
+ *  ©️ 2025. Maginium Technologies <contact@maginium.com>
+ *  🖋️ Author: Abdelrhman Kouta
+ *      - 📧 Email: pixiedia@gmail.com
+ *      - 🌐 Website: https://maginium.com
+ *  📖 Documentation: https://docs.maginium.com
+ *
+ *  📄 For the full copyright and license information, please view
+ *  the LICENSE file that was distributed with this source code.
+ */
+
 namespace Maginium\Installer\Commands;
 
 use Exception;
 use Illuminate\Support\Composer;
 use Maginium\Installer\Concerns\ConfiguresPrompts;
-use Maginium\Installer\Concerns\InteractWithContainer;
 use Maginium\Installer\Concerns\HasInteraction;
 use Maginium\Installer\Concerns\InteractsWithComposer;
 use Maginium\Installer\Concerns\InteractsWithEnv;
 use Maginium\Installer\Concerns\InteractsWithGit;
 use Maginium\Installer\Concerns\InteractsWithHerdOrValet;
 use Maginium\Installer\Concerns\InteractsWithIO;
+use Maginium\Installer\Concerns\InteractWithContainer;
 use Maginium\Installer\Enums\Commands;
 use Maginium\Installer\Traits\Configurable;
 use Maginium\Installer\Traits\InstallationWizard;
@@ -40,8 +54,6 @@ class NewCommand extends Command
     use Configurable;
     // Handles prompt configurations during setup
     use ConfiguresPrompts;
-    // Manages package dependencies required by the application
-    use InteractWithContainer;
     // Enables interaction capabilities within the command
     use HasInteraction;
     // Facilitates the installation wizard process
@@ -56,6 +68,8 @@ class NewCommand extends Command
     use InteractsWithHerdOrValet;
     // Provides input/output interaction utilities
     use InteractsWithIO;
+    // Manages package dependencies required by the application
+    use InteractWithContainer;
     // Offers various setup helper methods
     use SetupHelper;
 

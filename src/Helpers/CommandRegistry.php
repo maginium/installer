@@ -2,6 +2,20 @@
 
 declare(strict_types=1);
 
+/*
+ *
+ *  🚀 This file is part of the Maginium Framework.
+ *
+ *  ©️ 2025. Maginium Technologies <contact@maginium.com>
+ *  🖋️ Author: Abdelrhman Kouta
+ *      - 📧 Email: pixiedia@gmail.com
+ *      - 🌐 Website: https://maginium.com
+ *  📖 Documentation: https://docs.maginium.com
+ *
+ *  📄 For the full copyright and license information, please view
+ *  the LICENSE file that was distributed with this source code.
+ */
+
 namespace Maginium\Installer\Helpers;
 
 use Illuminate\Support\Collection;
@@ -45,27 +59,6 @@ class CommandRegistry extends Collection
     }
 
     /**
-     * Add a new command to the registry.
-     *
-     * This method allows adding a single command to the existing collection of commands.
-     * It validates that the command is a string before adding it to the registry.
-     *
-     * @param Command $command The command to be added to the registry.
-     *
-     * @throws InvalidArgumentException If the command is not a valid string.
-     */
-    public function addCommand(Command $command): void
-    {
-        // Validate that the command is a string
-        if (! $command instanceof Command) {
-            throw new InvalidArgumentException(sprintf('The command must be instance of %s.', Command::class));
-        }
-
-        // Add the command to the registry
-        $this->push($command);
-    }
-
-    /**
      * Retrieve all registered commands.
      *
      * This method returns all the commands currently stored in the registry.
@@ -89,5 +82,26 @@ class CommandRegistry extends Collection
     public function hasCommand(string|Command $command): bool
     {
         return $this->contains($command);
+    }
+
+    /**
+     * Add a new command to the registry.
+     *
+     * This method allows adding a single command to the existing collection of commands.
+     * It validates that the command is a string before adding it to the registry.
+     *
+     * @param Command $command The command to be added to the registry.
+     *
+     * @throws InvalidArgumentException If the command is not a valid string.
+     */
+    public function addCommand(Command $command): void
+    {
+        // Validate that the command is a string
+        if (! $command instanceof Command) {
+            throw new InvalidArgumentException(sprintf('The command must be instance of %s.', Command::class));
+        }
+
+        // Add the command to the registry
+        $this->push($command);
     }
 }

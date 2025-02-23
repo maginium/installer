@@ -2,86 +2,119 @@
 
 declare(strict_types=1);
 
+/*
+ *
+ *  🚀 This file is part of the Maginium Framework.
+ *
+ *  ©️ 2025. Maginium Technologies <contact@maginium.com>
+ *  🖋️ Author: Abdelrhman Kouta
+ *      - 📧 Email: pixiedia@gmail.com
+ *      - 🌐 Website: https://maginium.com
+ *  📖 Documentation: https://docs.maginium.com
+ *
+ *  📄 For the full copyright and license information, please view
+ *  the LICENSE file that was distributed with this source code.
+ */
+
 use Symfony\Component\Process\ExecutableFinder;
 
 if (! function_exists('base_path')) {
     /**
-     * Returns the base path, optionally appending a given relative path.
+     * Retrieves the base path of the application, optionally appending a relative path.
      *
-     * If the BP constant is defined, it will return its value.
-     * Otherwise, it returns the directory name of the current script (__DIR__).
-     * If a path is provided, it will be appended to the base path.
+     * Returns the value of the BP constant if defined, otherwise falls back to the directory
+     * of the current script (__DIR__). When a relative path is provided, it is appended
+     * to the base path using the appropriate directory separator.
      *
      * @param string|null $path Optional relative path to append to the base path.
+     *                          If null, only the base path is returned.
      *
-     * @return string The base path, optionally concatenated with the given path.
+     * @return string The absolute base path, or base path concatenated with the given relative path.
      */
     function base_path(?string $path = null): string
     {
-        $basePath = defined('BP') ? BP : __DIR__;
+        // Use defined constant BP if available, otherwise use current directory
+        $basePath = defined('BP') ? BP : dirname(__DIR__);
 
-        // If a path is provided, append it to the base path with directory separator
-        return join_paths($basePath, $path);
+        // Return base path directly if no additional path is provided
+        return $path === null ? $basePath : join_paths($basePath, $path);
     }
 }
 
 if (! function_exists('vendor_path')) {
     /**
-     * Returns the path to the vendor directory.
+     * Retrieves the absolute path to the vendor directory.
      *
-     * This function concatenates the base path with the 'vendor' directory.
-     * It is generally used to reference third-party libraries installed via Composer.
+     * Constructs the path by appending '/vendor' to the base path. This is typically
+     * used to reference Composer-installed third-party libraries and dependencies.
      *
-     * @return string The vendor path.
+     * @return string The absolute path to the vendor directory.
      */
     function vendor_path(): string
     {
-        return base_path() . '/vendor';
+        return base_path('vendor');
     }
 }
 
 if (! function_exists('join_paths')) {
     /**
-     * Join the given paths together.
+     * Combines multiple path segments into a single path string.
      *
-     * @param  string|null  $basePath
-     * @param  string  ...$paths
+     * Ensures proper directory separators between segments and removes duplicate
+     * separators. Empty path segments (except '0') are ignored.
      *
-     * @return string
+     * @param string|null $basePath The initial base path to start with.
+     * @param string ...$paths Variable number of additional path segments to join.
+     *
+     * @return string The combined path string with proper directory separators.
      */
-    function join_paths($basePath, ...$paths)
+    function join_paths(?string $basePath, string ...$paths): string
     {
+        // Handle null basePath by converting to empty string
+        $basePath ??= '';
+
+        // Process each path segment
         foreach ($paths as $index => $path) {
             if (empty($path) && $path !== '0') {
+                // Remove empty segments
                 unset($paths[$index]);
             } else {
+                // Ensure single separator and trim leading separators
                 $paths[$index] = DIRECTORY_SEPARATOR . ltrim($path, DIRECTORY_SEPARATOR);
             }
         }
 
+        // Combine base path with processed segments
         return $basePath . implode('', $paths);
     }
 }
 
-if (! function_exists(function: 'php_binary')) {
+if (! function_exists('php_binary')) {
     /**
-     * Determine the PHP Binary.
+     * Determines the path to the PHP binary executable.
      *
-     * @return string
+     * Uses ExecutableFinder to locate the PHP binary. Falls back to 'php' if
+     * the specific Magento binary cannot be found.
+     *
+     * @return string The path to the PHP binary or 'php' as default.
      */
-    function php_binary()
+    function php_binary(): string
     {
+        // Attempt to find Magento-specific binary, fallback to generic 'php'
         return (new ExecutableFinder)->find('bin/magento') ?: 'php';
     }
 }
 
 if (! function_exists('magento_binary')) {
     /**
-     * Determine the Magento Binary.
+     * Provides the standard path to the Magento binary.
      *
-     * @return string
+     * Returns the conventional location of the Magento command-line tool
+     * relative to the base path.
+     *
+     * @return string The relative path to the Magento binary.
      */
-    function magento_binary()
+    function magento_binary(): string
     {
         return 'bin/magento';
     }

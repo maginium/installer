@@ -14,13 +14,14 @@
     ],
     "require": {
         "php": "^8.2",
-        "povils/figlet": "^0.1.0",
-        "vlucas/phpdotenv": "^5.6",
-        "symfony/console": "^6.2|^7.0",
-        "symfony/process": "^6.2|^7.0",
-        "symfony/polyfill-mbstring": "^1.31",
         "illuminate/filesystem": "^10.20|^11.0",
-        "laravel/prompts": "^0.1.18|^0.2.0|^0.3.0"
+        "illuminate/support": "^11.43",
+        "laravel/prompts": "^0.1.18|^0.2.0|^0.3.0",
+        "povils/figlet": "^0.1.0",
+        "symfony/console": "^6.2|^7.0",
+        "symfony/polyfill-mbstring": "^1.31",
+        "symfony/process": "^6.2|^7.0",
+        "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "laravel/pint": "^1.13",
@@ -29,7 +30,11 @@
         "symfony/var-dumper": "^7.2"
     },
     "scripts": {
-        "format": "./vendor/bin/pint"
+        "format": "./vendor/bin/pint",
+        "format:copyright": "php ./scripts/CopyrightManager.php",
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
     },
     "bin": [
         "bin/maginium"
@@ -52,20 +57,6 @@
     },
     "config": {
         "sort-packages": true
-    },
-    "repositories": {
-        "composer": {
-            "type": "composer",
-            "url": "https://repo.magento.com/"
-        },
-        "plumrocket": {
-            "type": "composer",
-            "url": "https://plumrocket.com/repo"
-        },
-        "mirasvit-reports": {
-            "type": "composer",
-            "url": "https://56674:4X52QGHNSI@packages.mirasvit.com/56674:4X52QGHNSI/"
-        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

@@ -6,7 +6,7 @@ declare(strict_types=1);
  *
  *  🚀 This file is part of the Maginium Framework.
  *
- *  ©️ 2025. Pixielity ©. Technologies <contact@maginium>
+ *  ©️ 2025. Maginium Technologies <contact@maginium.com>
  *  🖋️ Author: Abdelrhman Kouta
  *      - 📧 Email: pixiedia@gmail.com
  *      - 🌐 Website: https://maginium.com
@@ -54,7 +54,7 @@ class ConfigRegistration
     public function __construct(array $globPatterns)
     {
         // Set the base directory two levels up from the current directory.
-        $this->baseDir = BP;
+        $this->baseDir = base_path();
 
         $this->finder = new Finder;
 
