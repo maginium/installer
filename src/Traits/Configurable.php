@@ -100,14 +100,7 @@ trait Configurable
 
                 // Add the option to the command with the collected parameters
                 // The 'addOption' method registers the option for use in the command
-                $this->addOption(
-                    name: $key, // Option name
-                    shortcut: $shortcut, // Shortcut for the option (if any)
-                    mode: $mode, // Mode (flag, value, etc.)
-                    description: $description, // Description for the option (helps with documentation)
-                    default: $default, // Default value if the option is not set by the user
-                    suggestedValues: $suggestedValues, // Suggested values for validation or autocomplete
-                );
+                $this->addOption($key, $shortcut, $mode, $description, $default, $suggestedValues);
             }
         }
     }

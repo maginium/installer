@@ -37,6 +37,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use function Laravel\Prompts\progress;
 use function Laravel\Prompts\spin;
 
 /**
@@ -112,6 +113,7 @@ class NewCommand extends Command
         $process = spin(
             // Spins with a progress message while executing the setup process.
             message: '🚀 Setting up the project template...', // Displays a progress message.
+
             // The callback to execute the setup commands.
             callback: function() use ($installationDirectory) {
                 // Retrieves the version of Maginium to be installed.
@@ -120,30 +122,41 @@ class NewCommand extends Command
                 // Generates the setup commands.
                 $commands = $this->generateSetupCommands($installationDirectory, $version);
 
-                // Executes the setup commands silently.
-                return $this->executeCommands($commands, silent: true);
+                // Initialize progress bar with the number of commands.
+                $progress = progress(label: '🚀 Installing Maginium', steps: count($commands));
+                $progress->start();
+
+                // Executes the setup commands one by one with progress tracking.
+                foreach ($commands as $command) {
+                    $this->executeCommands($command, silent: true);
+                    $progress->advance();
+                }
+
+                // Finish progress bar when done.
+                $progress->finish();
+
+                // Ensure it returns a boolean.
+                return true;
             },
         );
 
-        // If the setup process was successful, proceed with installation.
-        if ($process->isSuccessful()) {
+        // Directly check if `$process` is true
+        if ($process) {
             // Proceed with installation steps.
-            // Initiates the actual installation process.
             $installationSuccess = $this->performMaginiumInstallation();
 
             // If installation is successful, finalize the setup.
             if ($installationSuccess) {
-                $metaPackageInstallation = spin(
-                    message: '⬇️ Installing meta package...', // Progress message for the database migration process.
+                $metaPackageSuccess = spin(
+                    message: '⬇️ Installing meta package...', // Progress message
                     callback: fn(): bool => $this->composerRequireMetaPackage(),
                 );
 
-                if ($metaPackageInstallation) {
-                    $setupMigration = $this->performSetupMigration();
+                if ($metaPackageSuccess) {
+                    $setupMigrationSuccess = $this->performSetupMigration();
 
-                    // If the process fails, display an error message.
-                    if ($setupMigration) {
-                        // Finalizes the installation by updating configuration.
+                    // Finalize only if migration is successful
+                    if ($setupMigrationSuccess) {
                         $this->finalizeInstallationSetup($projectName, $installationDirectory);
                     }
                 }
@@ -249,7 +262,7 @@ class NewCommand extends Command
     private function performMaginiumInstallation(): bool
     {
         // Spins while performing the Maginium installation.
-        return spin( 
+        return spin(
             message: '🅼 Installing Maginium...', // Displays a progress message for installation.
             // Callback to execute the installation command.
             callback: function(): bool {
@@ -302,12 +315,12 @@ class NewCommand extends Command
 
         // Command to create the Maginium project using Composer.
         $commands[] = "{$composer} create-project maginium/template \"{$directory}\" {$version} --remove-vcs --prefer-dist --no-scripts";
-       
+
         // Command to run post-root-package-install after project creation.
         $commands[] = "{$composer} run post-root-package-install -d \"{$directory}\"";
 
         // Command to run bun install after project creation.
-        $commands[] = "bun install";
+        $commands[] = 'bun install';
 
         // Return the generated setup commands.
         return $commands;

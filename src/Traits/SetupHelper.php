@@ -151,7 +151,7 @@ trait SetupHelper
     protected function sanitizeName(string $name): string
     {
         // Remove trailing slashes or backslashes from the name.
-        return Str::rtrim($name, '/\\');
+        return rtrim($name, '/\\');
     }
 
     /**
