@@ -119,6 +119,20 @@ class ConfigurationRegistry extends Collection
     }
 
     /**
+     * Check if a specific configuration set exists.
+     *
+     * This method checks whether a configuration set of a specific type exists in the registry.
+     *
+     * @param string $configType The type of configuration (e.g., 'currencies').
+     *
+     * @return bool True if the configuration set exists, otherwise false.
+     */
+    public function hasConfiguration(string $configType): bool
+    {
+        return $this->has($configType);
+    }
+
+    /**
      * Retrieve the configurations array for all configurations that have a specific tag.
      *
      * This method filters through the configurations and returns only the "configurations"
@@ -217,19 +231,5 @@ class ConfigurationRegistry extends Collection
         if ($this->has($configType)) {
             $this->forget($configType);
         }
-    }
-
-    /**
-     * Check if a specific configuration set exists.
-     *
-     * This method checks whether a configuration set of a specific type exists in the registry.
-     *
-     * @param string $configType The type of configuration (e.g., 'currencies').
-     *
-     * @return bool True if the configuration set exists, otherwise false.
-     */
-    public function hasConfiguration(string $configType): bool
-    {
-        return $this->has($configType);
     }
 }

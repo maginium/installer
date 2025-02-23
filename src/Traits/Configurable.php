@@ -123,15 +123,7 @@ trait Configurable
     {
         return $this
           // Define an argument for the application's name (mandatory)
-            ->addArgument('name', InputArgument::REQUIRED)
-          // Option to install the latest "development" release
-            ->addOption('dev', null, InputOption::VALUE_NONE, 'Installs the latest "development" release')
-          // Option to initialize a Git repository after creating the application
-            ->addOption('git', null, InputOption::VALUE_NONE, 'Initialize a Git repository')
-          // Option to specify the branch for the new repository
-            ->addOption('branch', null, InputOption::VALUE_REQUIRED, 'The branch that should be created for a new repository', $this->defaultBranch())
-          // Option to create a new repository on GitHub
-            ->addOption('github', null, InputOption::VALUE_OPTIONAL, 'Create a new repository on GitHub', false);
+            ->addArgument('name', InputArgument::REQUIRED);
     }
 
     /**

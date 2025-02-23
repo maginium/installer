@@ -1,0 +1,7 @@
+- Change repo cloning to progessbar
+- return default value for all config if no value avalible
+- Fix language, timezone and currency code to code value instead of label
+- allow search by Sar, +3 and so on ... in language, timezone and currency code
+- Combine repeated config under one prompt e.g. cache
+- adding testing github action
+- Review and enhance installation flow and subs

@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace Maginium\Installer\Commands;
 
 use Exception;
-use Illuminate\Support\Composer;
 use Maginium\Installer\Concerns\ConfiguresPrompts;
 use Maginium\Installer\Concerns\HasInteraction;
 use Maginium\Installer\Concerns\InteractsWithComposer;
@@ -110,47 +109,45 @@ class NewCommand extends Command
         // Start setup prompts for additional configuration.
         $this->startSetupPrompts();
 
-        // $process = spin(
-        //     // Spins with a progress message while executing the setup process.
-        //     message: '🚀 Setting up the project template...', // Displays a progress message.
-        //     // The callback to execute the setup commands.
-        //     callback: function() use ($installationDirectory) {
-        //         // Retrieves the version of Maginium to be installed.
-        //         $version = $this->getVersion();
+        $process = spin(
+            // Spins with a progress message while executing the setup process.
+            message: '🚀 Setting up the project template...', // Displays a progress message.
+            // The callback to execute the setup commands.
+            callback: function() use ($installationDirectory) {
+                // Retrieves the version of Maginium to be installed.
+                $version = $this->getVersion();
 
-        //         // Generates the setup commands.
-        //         $commands = $this->generateSetupCommands($installationDirectory, $version);
+                // Generates the setup commands.
+                $commands = $this->generateSetupCommands($installationDirectory, $version);
 
-        //         // Executes the setup commands silently.
-        //         return $this->executeCommands($commands, silent: true);
-        //     },
-        // );
+                // Executes the setup commands silently.
+                return $this->executeCommands($commands, silent: true);
+            },
+        );
 
         // If the setup process was successful, proceed with installation.
-        // if ($process->isSuccessful()) {
-        if (true) {
+        if ($process->isSuccessful()) {
             // Proceed with installation steps.
             // Initiates the actual installation process.
-            // $installationSuccess = $this->performMaginiumInstallation();
+            $installationSuccess = $this->performMaginiumInstallation();
 
             // If installation is successful, finalize the setup.
-            // if ($installationSuccess) {
-            // $metaPackageInstallation = spin(
-            //     message: '⬇️ Installing meta package...', // Progress message for the database migration process.
-            //     callback: fn(): bool => $this->composerRequireMetaPackage(),
-            // );
+            if ($installationSuccess) {
+                $metaPackageInstallation = spin(
+                    message: '⬇️ Installing meta package...', // Progress message for the database migration process.
+                    callback: fn(): bool => $this->composerRequireMetaPackage(),
+                );
 
-            // if ($metaPackageInstallation) {
-            if (true) {
-                $setupMigration = $this->performSetupMigration();
+                if ($metaPackageInstallation) {
+                    $setupMigration = $this->performSetupMigration();
 
-                // If the process fails, display an error message.
-                if ($setupMigration) {
-                    // Finalizes the installation by updating configuration.
-                    $this->finalizeInstallationSetup($projectName, $installationDirectory);
+                    // If the process fails, display an error message.
+                    if ($setupMigration) {
+                        // Finalizes the installation by updating configuration.
+                        $this->finalizeInstallationSetup($projectName, $installationDirectory);
+                    }
                 }
             }
-            // }
         }
 
         // Return success code for the command.
@@ -172,7 +169,7 @@ class NewCommand extends Command
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
         // Clear the console screen using ANSI escape codes
-        $output->write(sprintf("\033\143"));
+        $this->clearConsole();
 
         // Set the input and output for further usage
         static::setOutput($output);
@@ -251,15 +248,15 @@ class NewCommand extends Command
      */
     private function performMaginiumInstallation(): bool
     {
-        // Start setup prompts for additional configuration.
-        $this->startSetupPrompts();
-
-        return spin( // Spins while performing the Maginium installation.
+        // Spins while performing the Maginium installation.
+        return spin( 
             message: '🅼 Installing Maginium...', // Displays a progress message for installation.
             // Callback to execute the installation command.
             callback: function(): bool {
                 // Retrieves the installation command.
                 $command = $this->getInstallationCommand();
+
+                dump(vars: $command);
 
                 // Executes the installation command.
                 $process = $this->executeCommands($command);
@@ -305,8 +302,12 @@ class NewCommand extends Command
 
         // Command to create the Maginium project using Composer.
         $commands[] = "{$composer} create-project maginium/template \"{$directory}\" {$version} --remove-vcs --prefer-dist --no-scripts";
+       
         // Command to run post-root-package-install after project creation.
         $commands[] = "{$composer} run post-root-package-install -d \"{$directory}\"";
+
+        // Command to run bun install after project creation.
+        $commands[] = "bun install";
 
         // Return the generated setup commands.
         return $commands;
@@ -333,7 +334,6 @@ class NewCommand extends Command
         // Display success messages with instructions on how to continue.
         $this->line("  <bg=blue;fg=white> INFO </> Application ready in <options=bold>[{$name}]</>. Start your local development with:" . PHP_EOL);
         $this->line('<fg=gray>➜</> <options=bold>cd ' . $name . '</>');
-        $this->line('<fg=gray>➜</> <options=bold>npm install && npm run build</>');
 
         // If the project is on Herd or Valet, provide a URL to open the project.
         if ($this->isParkedOnHerdOrValet($directory)) {

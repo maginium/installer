@@ -133,32 +133,4 @@ trait InteractsWithComposer
         // Install the default package
         return $this->composerRequire('maginium/meta-package:*');
     }
-
-    /**
-     * Set authentication for Composer and Maginium CMS.
-     *
-     * This method configures authentication using the provided email and project key,
-     * and can store the credentials or project details in the necessary configuration files.
-     *
-     * @param  string $email The email associated with the Composer account
-     * @param  string $projectKey The project key for the Maginium CMS
-     *
-     * @return void
-     */
-    protected function setComposerAuth(string $email, string $projectKey): void
-    {
-        $composer = $this->getComposer();
-
-        // Example: Save authentication token (currently commented out)
-        // $composer->addAuthCredentials(
-        //     $this->getComposerUrl(false),
-        //     $email,
-        //     $projectKey,
-        // );
-
-        // Example: Store project details (currently commented out)
-        // $this->injectJsonToFile(storage_path('cms/project.json'), [
-        //     'project' => $projectKey,
-        // ]);
-    }
 }
