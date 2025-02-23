@@ -18,8 +18,6 @@ declare(strict_types=1);
 
 namespace Maginium\Installer\Concerns;
 
-use Symfony\Component\Process\Process;
-
 /**
  * Trait InteractsWithGit.
  *

@@ -54,30 +54,30 @@ trait HasInteraction
         // Step 2: Display the application banner (styling the banner text)
         $this->displayBanner();
 
-        // // Step 3: Ensure the necessary PHP extensions are available for installation
-        // spin(
-        //     message: '🔎 Ensuring the necessary PHP extensions are available for installation...',
-        //     callback: function() {
-        //         // Add 3-second delay inside the callback
-        //         Sleep::sleep(3);
+        // Step 3: Ensure the necessary PHP extensions are available for installation
+        spin(
+            message: '🔎 Ensuring the necessary PHP extensions are available for installation...',
+            callback: function() {
+                // Add 3-second delay inside the callback
+                Sleep::sleep(3);
 
-        //         $this->ensureExtensionsAreAvailable();
-        //     },
-        // );
+                $this->ensureExtensionsAreAvailable();
+            },
+        );
 
         // Step 4: Prompt for the project name if it is not already provided
         $this->promptForProjectName();
 
-        // // Step 5: Verify if the application directory already exists unless the --force flag is set
-        // spin(
-        //     message: '🔎 Verifying if the application directory already exists...',
-        //     callback: function() {
-        //         // Add 3-second delay inside the callback
-        //         Sleep::sleep(3);
+        // Step 5: Verify if the application directory already exists unless the --force flag is set
+        spin(
+            message: '🔎 Verifying if the application directory already exists...',
+            callback: function() {
+                // Add 3-second delay inside the callback
+                Sleep::sleep(3);
 
-        //         $this->verifyApplicationDirectory();
-        //     },
-        // );
+                $this->verifyApplicationDirectory();
+            },
+        );
     }
 
     /**

@@ -42,6 +42,6 @@ class Logger
     public function log(string $level, string $message, int|string|null $verbosity = null): void
     {
         // Log the message using the provided logger interface
-        $this->line($message, $level, $verbosity);
+        static::line($message, $level, $verbosity);
     }
 }
